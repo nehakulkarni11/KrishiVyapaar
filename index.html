@@ -16,13 +16,9 @@
     <nav class="navbar">
         <h2 class="logo">Krishi Vyapaar</h2>
         <div class="nav-links">
-            <!-- Info Icon -->
-            <span class="nav-icon" id="info-icon" title="Information">🌱</span>
-            <!-- Login/Logout Icon -->
-            <span class="nav-icon" id="login-icon" title="Login">🔑</span>
-            <!-- Translate Button -->
-            <button id="translate-btn">
-                हिंदी</button>
+            <button class="nav-icon" id="info-icon" title="Information">PM schemes</button>
+            <!-- <span class="nav-icon" id="login-icon" title="Login">🔑</span> -->
+            <button id="translate-btn">हिंदी</button>
         </div>
     </nav>
 
@@ -33,11 +29,20 @@
         <!-- Real-Time Data Section -->
         <div class="status-card">
             <h2>Real-Time Status</h2>
-            <p>Timestamp: <span id="timestamp-value">--</span></p>
-            <p>Temperature: <span id="temp-value">--</span> °C</p>
-            <p>Humidity: <span id="humidity-value">--</span> %</p>
-            <p>Heat Index: <span id="heat-index-value">--</span> °C</p>
+            <!-- Refresh Indicator -->
+            <div id="refresh-indicator" class="refreshing" style="display: none;">Refreshing...</div>
+            <!-- Loader -->
+            <div id="loader" class="loader"></div>
+
+            <!-- Content -->
+            <div id="status-content" style="display: none;">
+                <p id="timestamp">Timestamp: <span id="timestamp-value">--</span></p>
+                <p id="temperature">Temperature: <span id="temp-value">--</span> °C</p>
+                <p id="humidity">Humidity: <span id="humidity-value">--</span> %</p>
+                <p id="heat-index">Heat Index: <span id="heat-index-value">--</span> °C</p>
+            </div>
         </div>
+
 
         <!-- Alerts Section -->
         <div class="alert-card">
@@ -45,17 +50,29 @@
             <p id="alert-message">No Alerts</p>
         </div>
 
-        <!-- Communication Section -->
-        <div class="message-card">
-            <h2>Communicate with Transporter</h2>
-            <textarea id="message-box" placeholder="Write a message..."></textarea>
-            <button id="send-message-btn">Send Message</button>
-            <p id="message-status"></p>
+        <!-- Communication Section with Action Buttons -->
+        <div class="communication-card">
+            <h2>Contact Transporter</h2>
+            <button id="whatsapp" class="action-btn" onclick="openWhatsApp()">📱 WhatsApp</button>
+            <button id="call" class="action-btn" onclick="callTransporter()">📞 Call</button>
+            <button id="location" class="action-btn" onclick="requestLocation()">📍 Request Location</button>
         </div>
+
+        <!-- Weather Forecast and News Section -->
+        <!-- <div class="info-card">
+            <h2>Weather & Farming News</h2>
+            <div class="weather">
+                <h3>Upcoming Weather</h3>
+                <p id="weather-forecast">Fetching data...</p>
+            </div>
+            <div class="news">
+                <h3>Farming News</h3>
+                <p id="farming-news">Fetching latest news...</p>
+            </div>
+        </div> -->
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
 </body>
 
 </html>
